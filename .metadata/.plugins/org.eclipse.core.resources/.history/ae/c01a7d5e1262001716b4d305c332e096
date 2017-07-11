@@ -1,0 +1,77 @@
+
+/**
+ * @author shrividluck
+ */
+package com.shri.mtts.entity.impl;
+import com.shri.mtts.entity.Movie;
+
+
+
+public class MovieImpl implements Movie {
+
+	private long Id;	
+	private String MovieName;
+	private String Genre;
+	private String CastCrew;
+	private String Ratings;
+	private String Reviews;	
+	private String Synopsis;
+	
+	
+	public long getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public String getMovieName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getGenre() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getMovieCastCrew() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getMovieRatings() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getReviews() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getSynopsis() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setId(long id) {
+		Id = id;
+	}
+	public void setMovieName(String movieName) {
+		MovieName = movieName;
+	}
+	public void setGenre(String genre) {
+		Genre = genre;
+	}
+	public String getCastCrew() {
+		return CastCrew;
+	}
+	public void setCastCrew(String castCrew) {
+		CastCrew = castCrew;
+	}
+	public String getRatings() {
+		return Ratings;
+	}
+	public void setRatings(String ratings) {
+		Ratings = ratings;
+	}
+	public void setReviews(String reviews) {
+		Reviews = reviews;
+	}
+	public void setSynopsis(String synopsis) {
+		Synopsis = synopsis;
+	}
+	
+}

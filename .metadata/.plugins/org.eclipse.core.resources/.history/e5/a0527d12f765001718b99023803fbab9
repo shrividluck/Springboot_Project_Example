@@ -1,0 +1,20 @@
+package com.shri.mtts.service;
+import com.shri.mtts.entity.Theater;
+import com.shri.mtts.entity.impl.TheaterImpl;
+
+
+public interface TheaterService {
+	
+	String addMovieToTheater(String movie);
+
+	void updateMovieInfo(String movieInfo);
+	
+	TheaterImpl addTheater(String theaterName);
+
+	TheaterImpl addTheater(Theater theater);
+	
+	Iterable<Theater> getTheaterList(String movieName);
+
+	
+	
+}

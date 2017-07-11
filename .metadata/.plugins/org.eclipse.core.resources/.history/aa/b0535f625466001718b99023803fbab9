@@ -1,0 +1,121 @@
+
+/**
+ * @author shrividluck
+ */
+package com.shri.mtts.entity.impl;
+import java.util.List;
+
+import com.shri.mtts.entity.Movie;
+
+public class MovieImpl implements Movie {
+
+	private Long movieId;	
+	private String movieName;
+	private String genre;
+	private String castCrew;
+	private String ratings;
+	private String reviews;	
+	private String synopsis;
+	private List<String> theatersPlayingMovie;
+	
+	public MovieImpl() {
+	}
+	
+	public MovieImpl(String movieName) {
+		this.movieName = movieName;
+		this.setMovieId((long) 1234);
+		this.genre = "default";
+		this.castCrew = "generic";
+		this.ratings = "*****";
+		this.reviews = "defaultReview";
+		this.synopsis = "defaultSynopsis";
+	}
+	
+	public MovieImpl (long id, String mName, String gen, String cc, String rat, String rev, String syn) {
+		this.setMovieId(id);
+		this.movieName = mName;
+		this.genre = gen;
+		this.castCrew = cc;
+		this.ratings = rat;
+		this.reviews = rev;
+		this.synopsis = syn;
+	}
+	
+	public MovieImpl(long id2) {
+		// TODO Auto-generated constructor stub
+		this.setMovieId(id2);
+	}
+    // what is this ? is it required ?
+	public String getMovieName() {
+		// TODO Auto-generated method stub
+		return movieName;
+	}
+	
+	public String getMovieCastCrew() {
+		// TODO Auto-generated method stub
+		return this.castCrew;
+	}
+	
+	public String getMovieReviews() {
+		// TODO Auto-generated method stub
+		return this.reviews;
+	}
+	
+	public String getMovieSynopsis() {
+		// TODO Auto-generated method stub
+		return this.synopsis;
+	}
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	public String getCastCrew() {
+		return this.castCrew;
+	}
+	public void setMovieCastCrew(String castCrew) {
+		this.castCrew = castCrew;
+	}
+	public String getMovieRatings() {
+		return this.ratings;
+	}
+	public void setRatings(String ratings) {
+		this.ratings = ratings;
+	}
+	public void setMovieReviews(String reviews) {
+		this.reviews = reviews;
+	}
+	public void setMovieSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+
+	@Override
+	public String getMovieGenre() {
+		// TODO Auto-generated method stub
+		return this.genre;
+	}
+    // new
+	@Override
+	public List<String> getTheatersPlayingMovie() {
+		// TODO Auto-generated method stub
+		return this.theatersPlayingMovie;
+	}
+    // new
+	public void setTheatersPlayingMovie(List<String> theatersPlaying) {
+		for(String theater: theatersPlaying) {
+			 this.theatersPlayingMovie.add(theater);
+		}
+	}
+    // new
+	@Override
+	public long getMovieId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+    // new
+	public void setMovieId(Long movieId) {
+		this.movieId = movieId;
+	}
+		
+}

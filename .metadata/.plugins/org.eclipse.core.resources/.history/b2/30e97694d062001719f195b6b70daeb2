@@ -1,0 +1,34 @@
+
+/**
+ * @author shrividluck
+ */
+package com.shri.mtts.entity.impl;
+import com.shri.mtts.entity.Theater;
+
+
+
+public class TheaterImpl implements Theater {
+
+	private long id;	
+	private String movieName;
+	private String genre;
+	private String castCrew;
+	private String ratings;
+	private String reviews;	
+	private String synopsis;
+	
+	public TheaterImpl() {
+	}
+	
+	public TheaterImpl(long id) {
+		this.id = id;
+	}
+	
+	public long getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+	
+	
+	
+}

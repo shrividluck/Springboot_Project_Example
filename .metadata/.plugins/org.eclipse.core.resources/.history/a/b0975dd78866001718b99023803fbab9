@@ -1,0 +1,89 @@
+/**
+ * 
+ */
+/**
+ * @author shrividluck
+ *
+ */
+package com.shri.mtts.service;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.shri.mtts.entity.Theater;
+import com.shri.mtts.entity.impl.TheaterImpl;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class TheaterServiceTest extends AbstractJUnit4SpringContextTests {
+	@Autowired
+	private TheaterService theaterService;
+
+/*
+a. Browse all theaters available in the system.
+b. Browse all movies playing in a particular theatre
+c. Filter theaters by entering zip code.
+d. Filter theaters by movie name and zip code.
+e. Get address by entering theater name.
+f. Get reviews and ratings of the theater by name
+g. Get list of upcoming movies in that theater
+*/
+	
+	
+	@Test
+	public void getMovie() {
+		Movie mvGet = movieService.getMovie("Eye of the Tiger");
+
+		assertThat(mvGet instanceof Movie).isTrue();
+		assertThat(mvGet.getMovieName().equals("Eye of the Tiger"));
+
+		System.out.println(mvGet);
+	}
+	
+	@Test
+	public void getTheaterList() {
+		
+		List<Theater> expectedPin = new ArrayList<Theater>();
+		expectedPin.add(new TheaterImpl("theater-10"));
+		expectedPin.add(new TheaterImpl("theater-11"));
+		expectedPin.add(new TheaterImpl("theater-12"));
+		expectedPin.add(new TheaterImpl("theater-13"));
+
+		List<Theater> expectedMPin = new ArrayList<Theater>();
+		expectedMPin.add(new TheaterImpl("theater-10"));
+		expectedMPin.add(new TheaterImpl("theater-12"));
+		
+		assertThat(expectedPin, is(theaterService.getTheaterList(1234)));
+		assertThat(expectedMPin, is(theaterService.getTheaterList("t1",1234)));
+	}
+	
+	@Test
+	public void getMoviesGenre() throws Exception {
+		
+		List<Movie> expectedA = new ArrayList<Movie>();
+		List<Movie> expectedC = new ArrayList<Movie>();
+		
+		expectedA.add(new MovieImpl("The Mummy"));
+		expectedA.add(new MovieImpl("SpiderMan Homecoming"));
+		
+		expectedC.add(new MovieImpl("Despicable Me"));
+		expectedC.add(new MovieImpl("Kung Fu Panda"));
+		
+	
+		
+		assertThat(expectedA, is(movieService.getMoviesByGenre("Action")));
+		assertThat(expectedC, is(movieService.getMoviesByGenre("Comedy")));
+		assertThat(movieService.getMoviesByGenre("Horror")).isNull();
+		
+	}
+}

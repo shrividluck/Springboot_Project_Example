@@ -1,0 +1,78 @@
+/**
+ * 
+ */
+/**
+ * @author shrividluck
+ *
+ */
+package com.shri.mtts.http;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.shri.mtts.entity.Theater;
+import com.shri.mtts.entity.impl.TheaterImpl;
+import com.shri.mtts.http.entity.HttpTheater;
+import com.shri.mtts.service.TheaterService;
+
+@RestController
+@RequestMapping(value = "/theaters", produces = MediaType.APPLICATION_JSON_VALUE)
+public class TheaterResource {
+	private Logger logger = LoggerFactory.getLogger(getClass());
+
+	@Autowired
+	private TheaterService theaterService;
+
+	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<HttpTheater> createMovie(@RequestBody HttpTheater newMovie) {		
+		Theater TheaterToCreate = convert(newMovie);
+		logger.info("Create Movie:" + TheaterToCreate);
+		Theater addedTheater = TheaterService.addTheater(TheaterToCreate);
+		return new ResponseEntity<>(new HttpTheater(addedMovie), HttpStatus.CREATED);
+	}
+
+	@RequestMapping(value = "/{movieId}", method = RequestMethod.GET)
+	public ResponseEntity<HttpTheater> getMovieById(@PathVariable("movieId") long movieId) {
+		logger.info("getting Movie by id:" + movieId);
+		Movie movie = MovieService.getMovie(movieId);
+		return new ResponseEntity<>(new HttpTheater(movie), HttpStatus.OK);
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<HttpTheater>> getMovieSearch(@RequestParam(value="firstName", required=false) String firstName,
+			@RequestParam(value="lastName", required=false) String lastName) {
+		logger.info("Movie search firstName=" + firstName + " lastName=" + lastName);
+		Iterable<Movie> found = MovieService.getMovies(firstName);
+		List<HttpTheater> returnList = new ArrayList<HttpTheater>();
+		for (Movie Movie : found) {
+			returnList.add(new HttpTheater(Movie));
+		}
+		return new ResponseEntity<>(returnList, HttpStatus.OK);
+	}
+
+	/**
+	 * Not pushing this into business layer. Could be a util as well
+	 * 
+	 * @param newMovie
+	 * @return
+	 */
+	private Movie convert(HttpTheater httpMovie) {
+		MovieImpl Movie = new MovieImpl();
+		Movie.setMovieName(httpMovie.Name);
+		
+		return Movie;
+	}
+}

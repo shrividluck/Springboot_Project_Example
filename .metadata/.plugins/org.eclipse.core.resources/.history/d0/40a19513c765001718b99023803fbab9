@@ -1,0 +1,9 @@
+package com.shri.mtts.entity;
+
+public interface Theater {
+	long getId();	
+	String getMoviesPlaying();
+	String getListOfTheaters();
+	String getTheaterAddress();
+	String getUpcomingMovies();
+}

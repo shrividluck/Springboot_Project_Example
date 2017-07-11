@@ -1,0 +1,26 @@
+package com.shri.mtts.service;
+import com.shri.mtts.entity.Theater;
+
+
+public interface TheaterService {
+	
+	String addMovieToTheater(String movie);
+
+	void updateMovieInfo(String movieInfo);
+
+	Boolean isPlaying(String str);
+	
+	
+
+	/**
+	 * Search user by first or last name, partial searches also performed
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @return Empty list is returned if none found
+	 */
+	Iterable<Theater> getTheaterList(String movieName);
+
+	
+
+}

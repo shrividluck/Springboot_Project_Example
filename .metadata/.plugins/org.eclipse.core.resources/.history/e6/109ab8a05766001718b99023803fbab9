@@ -1,0 +1,31 @@
+package com.shri.mtts.service;
+
+import com.shri.mtts.entity.Movie;
+
+/*
+ * a. Browse all movies available in the system
+b. Filter movies by name
+c. Filter movies by genre
+d. Get ratings by entering movie name
+e. Get reviews by entering movie name
+f. Get movie cast and crew info by entering name
+g. Get movie synopsis by entering movie name
+h. Get list of theaters my entering movie name.
+ * 
+ */
+
+
+public interface MovieService {
+	
+	Movie addMovie(Movie movie);
+
+	void updateMovie(Movie movie);
+
+	Movie getMovie(String string);
+	
+	Movie getMovie(long id);
+	
+	Iterable<Movie> getMovies(String name);
+
+    
+}

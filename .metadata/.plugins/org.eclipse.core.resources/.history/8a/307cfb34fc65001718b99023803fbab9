@@ -1,0 +1,71 @@
+
+/**
+ * @author shrividluck
+ */
+package com.shri.mtts.entity.impl;
+import com.shri.mtts.entity.Theater;
+
+
+
+public class TheaterImpl implements Theater {
+
+	private String id;	
+	private String theaterName;
+	private String moviesPlaying;
+	private String listOfTheaters;
+	private String theaterAddress;
+	private String upcomingMovies;
+	
+	
+	public TheaterImpl() {
+	}
+	
+	public TheaterImpl(String str) {
+		this.id = str;
+	}
+	
+	public String getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	public String getMoviesPlaying() {
+		return moviesPlaying;
+	}
+
+	public void setMoviesPlaying(String moviesPlaying) {
+		this.moviesPlaying = moviesPlaying;
+	}
+
+	public String getListOfTheaters() {
+		return listOfTheaters;
+	}
+
+	public void setListOfTheaters(String listOfTheaters) {
+		this.listOfTheaters = listOfTheaters;
+	}
+
+	public String getTheaterAddress() {
+		return theaterAddress;
+	}
+
+	public void setTheaterAddress(String theaterAddress) {
+		this.theaterAddress = theaterAddress;
+	}
+
+	public String getUpcomingMovies() {
+		return upcomingMovies;
+	}
+
+	public void setUpcomingMovies(String upcomingMovies) {
+		this.upcomingMovies = upcomingMovies;
+	}
+
+	public String getTheaterName() {
+		return theaterName;
+	}
+
+	public void setTheaterName(String theaterName) {
+		this.theaterName = theaterName;
+	}	
+}

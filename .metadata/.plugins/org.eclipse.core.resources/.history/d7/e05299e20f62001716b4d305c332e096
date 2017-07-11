@@ -1,0 +1,5 @@
+package com.shri.mtts.entity;
+
+public interface Movie {
+
+}

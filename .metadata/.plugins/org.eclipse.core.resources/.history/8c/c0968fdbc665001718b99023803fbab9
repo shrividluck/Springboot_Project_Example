@@ -1,0 +1,31 @@
+
+package com.shri.mtts.service.impl;
+
+import org.springframework.stereotype.Service;
+import com.shri.mtts.entity.Theater;
+import com.shri.mtts.service.TheaterService;
+
+	
+@Service
+public class TheaterServiceImpl implements TheaterService {
+
+    public Theater addMovieToTheater(Theater movie) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateMovieInfo(Theater movie) {
+		// TODO Auto-generated method stub
+		
+	}
+    public Theater getMovieInfo(String str) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Iterable<Theater> getMovies(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

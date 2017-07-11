@@ -1,0 +1,20 @@
+
+/**
+ * @author shrividluck
+ */
+package com.shri.mtts.entity.impl;
+import com.shri.mtts.entity.Movie;
+
+
+
+public class MovieImpl implements Movie {
+
+	long getId();	
+	String getMovieName();
+	String getGenre();
+	String getMovieCastCrew();
+	String getMovieRatings();
+	String getReviews();	
+	String getSynopsis();
+	
+}

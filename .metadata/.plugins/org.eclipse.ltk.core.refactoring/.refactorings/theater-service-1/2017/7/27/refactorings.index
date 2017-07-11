@@ -1,0 +1,12 @@
+1499402639325	Delete element
+1499402755427	Rename type 'MovieServiceApplication'
+1499402772605	Rename type 'Movie'
+1499402788314	Rename type 'MovieImpl'
+1499402804525	Rename type 'MovieService'
+1499402821930	Rename compilation unit 'MovieServiceImpl.java'
+1499402830738	Delete element
+1499402836201	Delete element
+1499403333107	Encapsulate field 'moviesPlaying'
+1499403342519	Encapsulate field 'listOfTheaters'
+1499403353183	Encapsulate field 'theaterAddress'
+1499403361544	Encapsulate field 'upcomingMovies'

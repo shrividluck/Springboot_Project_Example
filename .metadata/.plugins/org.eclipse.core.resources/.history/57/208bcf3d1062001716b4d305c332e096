@@ -1,0 +1,11 @@
+package com.shri.mtts.entity;
+
+public interface Movie {
+	long getId();	
+	String getMovieName();
+	String getMovieCastCrew();
+	String getMovieRatings();
+	String getReviews();
+	String getGenre();
+	String getSynopsis();
+}
