@@ -3,6 +3,7 @@ package com.shri.mtts.service;
 import java.util.List;
 
 import com.shri.mtts.entity.Movie;
+import com.shri.mtts.entity.impl.MovieImpl;
 
 /*
  *
@@ -22,15 +23,17 @@ public interface MovieService {
 	
 	Movie addMovie(Movie movie);
 
-	void updateMovie(Movie movie);
+	Movie updateMovie(Movie movie);
 
 	Movie getMovie(String string);
 	
-	Movie getMovie(long id);
+	//Movie getMovie(long id);
 	
-	List<Movie> getMovies();
+	Iterable<MovieImpl> getAllMovies();
 	
-	List<Movie> getMoviesByGenre(String gen);
+	Iterable<MovieImpl> getMoviesByGenre(String gen);
+
+	Movie getMovieById(long id);
 	
 	/*String getMovieRatings(String movieName);
 	

@@ -5,30 +5,56 @@
 package com.shri.mtts.entity.impl;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.shri.mtts.entity.Movie;
 
+@Entity
+@Table(name = "movies")
 public class MovieImpl implements Movie {
-
-	private Long movieId;	
+	
+	@Id
+    @Column(name = "idmovies")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long movieId;
+	
+	@Column(name = "movie_name")
 	private String movieName;
+	
+	@Column(name = "genre")
 	private String genre;
+	
+	@Column(name = "cast_crew")
 	private String castCrew;
+	
+	@Column(name = "ratings")	
 	private String ratings;
+	
+	@Column(name = "reviews")
 	private String reviews;	
+	
+	@Column(name = "synopsis")
 	private String synopsis;
-	private List<String> theatersPlayingMovie;
+	
+	//@Column(name = "theaters_playing_movie")
+	//private List<String> theatersPlayingMovie;
 	
 	public MovieImpl() {
 	}
 	
 	public MovieImpl(String movieName) {
 		this.movieName = movieName;
-		this.setMovieId((long) 1234);
+		/*this.setMovieId((long) 1234);
 		this.genre = "default";
 		this.castCrew = "generic";
 		this.ratings = "*****";
 		this.reviews = "defaultReview";
-		this.synopsis = "defaultSynopsis";
+		this.synopsis = "defaultSynopsis";*/
 	}
 	
 	public MovieImpl (long id, String mName, String gen, String cc, String rat, String rev, String syn) {
@@ -41,28 +67,28 @@ public class MovieImpl implements Movie {
 		this.synopsis = syn;
 	}
 	
-	public MovieImpl(long id2) {
+	/*public MovieImpl(long id2) {
 		// TODO Auto-generated constructor stub
 		this.setMovieId(id2);
-	}
+	}*/
     
-    // new
-	@Override
+    // new ???? not handling for now
+	/*@Override
 	public List<String> getTheatersPlayingMovie() {
 		// TODO Auto-generated method stub
 		return this.theatersPlayingMovie;
 	}
-    // new
+    // new ???? not handling for now
 	public void setTheatersPlayingMovie(List<String> theatersPlaying) {
 		for(String theater: theatersPlaying) {
 			 this.theatersPlayingMovie.add(theater);
 		}
-	}
+	}*/
     // new
 	@Override
 	public long getMovieId() {
 		// TODO Auto-generated method stub
-		return 0;
+		return this.movieId;
 	}
     // new
 	public void setMovieId(Long movieId) {
@@ -140,11 +166,47 @@ public class MovieImpl implements Movie {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        if(((Movie)obj).getMovieName().equals(this.getMovieName())) {
+        if( ((Movie)obj).getMovieName().equals(this.getMovieName()) ) {
+        	//MovieImpl mvImpl = (MovieImpl) obj; // new , not sure
+        	//return id.equals(that.id);
         	return true;
         }
 		return false;
 	}
-
+	
+	//new , not sure
+	@Override
+    public int hashCode() {
+        return this.movieId == null ? 0 : this.movieId.hashCode();
+    }
+	
+	
+	/*@Override
+	public void setMovieId() {
+		// TODO Auto-generated method stub
+		
+	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (id == null || obj == null || getClass() != obj.getClass())
+            return false;
+        Person that = (Person) obj;
+        return id.equals(that.id);
+    }
+    @Override
+    public int hashCode() {
+        return id == null ? 0 : id.hashCode();
+    }
+	@Override
+	public void setMovieName(Long id) {
+		// TODO Auto-generated method stub
+		
+	}*/
+	
+	public String toString() {
+		return "MovieImpl [id : "  + movieId + ", movieName : " + movieName + ", genre :" + genre + ", ratings: " + ratings+ "]";
+	}
 				
 }

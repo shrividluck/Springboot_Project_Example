@@ -34,42 +34,42 @@ public class MovieResource {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
-	private MovieService mS;
+	private MovieService movieService;
 
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<HttpMovie> createMovie(@RequestBody HttpMovie newMovie) {		
 		Movie MovieToCreate = convert(newMovie);
 		logger.info("Create Movie:" + MovieToCreate);
-		Movie addedMovie = mS.addMovie(MovieToCreate);
+		Movie addedMovie = movieService.addMovie(MovieToCreate);
 		return new ResponseEntity<>(new HttpMovie(addedMovie), HttpStatus.CREATED);
 	}
-
-	/*@RequestMapping(value = "/{movieName}", method = RequestMethod.GET)
-	public ResponseEntity<HttpMovie> getMovieById(@PathVariable("movieName") String movieName) {
-		logger.info("getting MovieInfo by name:" + movieName);
-		Movie movie = MovieService.getMovie(movieName);
+    // new
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<HttpMovie> getMovieById(@PathVariable("id") Long id) {
+		logger.info("getting Movie by id:" + id);
+		Movie movie = movieService.getMovieById(id);
 		return new ResponseEntity<>(new HttpMovie(movie), HttpStatus.OK);
-	}*/
+	}
 
 	@RequestMapping(value = "/GENRE/{genre}", method = RequestMethod.GET)
 	public ResponseEntity<List<HttpMovie>> getMovieByGenre(@PathVariable("genre") String genre) {
 		logger.info("getting Movies by genre:" + genre);
-		Iterable<Movie> movie = mS.getMoviesByGenre(genre);
-		if(movie == null) {
+		Iterable<MovieImpl> movieByG = movieService.getMoviesByGenre(genre);
+		if(movieByG == null) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		List<HttpMovie> returnList = new ArrayList<HttpMovie>();
-		for (Movie Movie : movie) {
+		for (Movie Movie : movieByG) {
 			returnList.add(new HttpMovie(Movie));
 		}
 		return new ResponseEntity<>(returnList, HttpStatus.OK);
 	}
 
-	
+    // new	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<HttpMovie>> getMovieList() {
 		logger.info("Movie list : All movies");
-		Iterable<Movie> found = mS.getMovies();
+		Iterable<MovieImpl> found = movieService.getAllMovies();
 		List<HttpMovie> returnList = new ArrayList<HttpMovie>();
 		for (Movie Movie : found) {
 			returnList.add(new HttpMovie(Movie));
@@ -80,21 +80,23 @@ public class MovieResource {
 	@RequestMapping(value = "/movie/{movieName}", method = RequestMethod.GET)
 	public ResponseEntity<HttpMovie> getMovieInfo(@PathVariable("movieName") String movieName) {
 		logger.info("getting Movies Info:" + movieName);
-		Movie movie = mS.getMovie(movieName);	
+		Movie movie = movieService.getMovie(movieName);	
 	    return new ResponseEntity<>(new HttpMovie(movie), HttpStatus.OK);
 		
 	}
 	
 	/**
-	 * 
+	 *
 	 * 
 	 * @param newMovie
 	 * @return
 	 */
 	private Movie convert(HttpMovie httpMovie) {
 		MovieImpl movie = new MovieImpl();
-		movie.setMovieName(httpMovie.Name);
-		
+		movie.setMovieId(httpMovie.id);
+		movie.setMovieName(httpMovie.Name);	
+		movie.setMovieGenre(httpMovie.Genre);
+		movie.setMovieRatings(httpMovie.Ratings);
 		return movie;
 	}
 }

@@ -4,7 +4,8 @@ import java.util.List;
 
 public interface Theater {
 	long getId();
-	long getPincode();
+	int getPincode();
+	void setPincode(int pC);
 	List<String> getMoviesPlaying();
 	//String getListOfTheaters();
 	String getTheaterAddress();
@@ -12,4 +13,7 @@ public interface Theater {
 	String getTheaterName();
 	void setTheaterName(String tName);
 	boolean equals(Object obj);
+	String getMoviesPlayingAsString();
+	void setMoviesPlayingAsString(String movies);
+	void setId(int in);
 }

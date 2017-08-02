@@ -14,21 +14,23 @@ import com.shri.mtts.entity.Theater;
 
 @JsonInclude(value=Include.NON_NULL)
 public class HttpTheater {	
-	//public long id;
+	public long id;
 	
 	public String Name;
 	
-	//public long pincode;
+	public int pincode;
 	
+	public String MoviesPlaying;
 
 	public HttpTheater() {
 		
 	}
 
 	public HttpTheater(Theater t) {
-		//this.id=t.getId();
+		this.id= t.getId();
 		this.Name = t.getTheaterName();
-		//this.pincode = t.getPincode();
+		this.pincode = t.getPincode();
+		this.MoviesPlaying = t.getMoviesPlayingAsString();
 		//not setting PIN
 	}
 }

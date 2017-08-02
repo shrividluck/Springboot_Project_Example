@@ -2,6 +2,7 @@ package com.shri.mtts.service;
 import java.util.List;
 
 import com.shri.mtts.entity.Theater;
+import com.shri.mtts.entity.impl.TheaterImpl;
 
 
 public interface TheaterService {
@@ -29,14 +30,26 @@ g. Get list of upcoming movies in that theater
 	
 	Theater getTheaterName(String tName); // ?? */
 	
-	List<String> getMoviesInTheater(Theater theater);
+//	List<String> getMoviesInTheater(Theater theater);
 	
-	List<String> getUpComingMoviesInTheater(Theater theater);
+//	List<String> getUpComingMoviesInTheater(Theater theater);
 	
-	List<Theater> getTheaterList(String movieName);
+	Iterable<TheaterImpl> getTheaterList(String movieName);
 
-	List<Theater> getTheaterList(long pinCode);
+	Iterable<TheaterImpl> getTheaterList(int pinCode);
 	
-	List<Theater> getTheaterList(String mName, long pinCode);
+	Iterable<TheaterImpl> getTheaterList(String mName, int pinCode);
+
+	Theater getTheaterName(long id);
+
+	List<String> getMoviesInTheater(String theater);
+	
+	List<String> getUpComingMoviesInTheater(String theater);
+
+	Theater getTheaterName(String tName);
+
+	Iterable<TheaterImpl> getTheaterListByName(String tName);
+
+	//Theater getTheaterName(long id);
 		
 }

@@ -44,11 +44,22 @@ public class TheaterResource {
 		Theater addedTheater = theaterService.addTheater(TheaterToCreate);
 		return new ResponseEntity<>(new HttpTheater(addedTheater), HttpStatus.CREATED);
 	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<HttpTheater>> getTheaterAll(@RequestParam(value = "tName", required=false) String tName) {
+		logger.info("Getting theater with Name "+ tName); 
+		Iterable<TheaterImpl> found = theaterService.getTheaterListByName(tName);
+		List<HttpTheater> returnList = new ArrayList<>();
+		for (Theater theater: found) {
+			returnList.add(new HttpTheater(theater));
+		}
+		return new ResponseEntity<>(returnList, HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/zip/{pinCode}", method = RequestMethod.GET)
-	public ResponseEntity<List<HttpTheater>> getTheaterByPinCode(@PathVariable("pinCode") long pinCode) {
+	public ResponseEntity<List<HttpTheater>> getTheaterByPinCode(@PathVariable("pinCode") int pinCode) {
 		logger.info("getting List of Theater by pincode :" + pinCode);
-		Iterable<Theater> found = theaterService.getTheaterList(pinCode);
+		Iterable<TheaterImpl> found = theaterService.getTheaterList(pinCode);
 		if (found == null) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -62,7 +73,7 @@ public class TheaterResource {
 	@RequestMapping(value = "/movie/{tName}", method = RequestMethod.GET)
 	public ResponseEntity<List<HttpTheater>> getTheaterSearch(@PathVariable("tName") String tName) {
 		logger.info("Theater search based Name=" + tName );
-		Iterable<Theater> found = theaterService.getTheaterList(tName);
+		Iterable<TheaterImpl> found = theaterService.getTheaterList(tName);
 		if (found == null) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -74,10 +85,10 @@ public class TheaterResource {
 	}
 
 	@RequestMapping(value = "/Mzip/{pinCode}/{movieName}", method = RequestMethod.GET)
-	public ResponseEntity<List<HttpTheater>> getTheaterByPinCodeAndMovie(@PathVariable("pinCode") long pinCode,
+	public ResponseEntity<List<HttpTheater>> getTheaterByPinCodeAndMovie(@PathVariable("pinCode") int pinCode,
 			                                                             @PathVariable("movieName") String movieName ) {
 		logger.info("getting List of Theater by pincode :" + pinCode + " and movieName : " + movieName);
-		Iterable<Theater> found = theaterService.getTheaterList(movieName, pinCode);
+		Iterable<TheaterImpl> found = theaterService.getTheaterList(movieName, pinCode);
 		if (found == null) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -96,7 +107,8 @@ public class TheaterResource {
 	private Theater convert(HttpTheater httpTheater) {
 		Theater theater = new TheaterImpl();
 		theater.setTheaterName(httpTheater.Name);
-		
+		theater.setPincode(httpTheater.pincode);
+		theater.setMoviesPlayingAsString(httpTheater.MoviesPlaying);
 		return theater;
 	}
 }

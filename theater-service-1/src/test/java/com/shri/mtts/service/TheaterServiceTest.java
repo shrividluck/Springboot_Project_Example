@@ -11,6 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -34,9 +35,7 @@ a. Browse all theaters available in the system.
 b. Browse all movies playing in a particular theatre
 c. Filter theaters by entering zip code.
 d. Filter theaters by movie name and zip code.
-e. Get address by entering theater name.
-f. Get reviews and ratings of the theater by name
-g. Get list of upcoming movies in that theater
+e. Get list of upcoming movies in that theater
 */
 	
 	
@@ -44,63 +43,46 @@ g. Get list of upcoming movies in that theater
 	@Test
 	public void getTheaterList() {
 		
-		List<Theater> expectedPin = new ArrayList<Theater>();
-		expectedPin.add(new TheaterImpl("theater-10"));
-		expectedPin.add(new TheaterImpl("theater-11"));
-		expectedPin.add(new TheaterImpl("theater-12"));
-		expectedPin.add(new TheaterImpl("theater-13"));
-
-		List<Theater> expectedMPin = new ArrayList<Theater>();
-		expectedMPin.add(new TheaterImpl("theater-10"));
-		expectedMPin.add(new TheaterImpl("theater-12"));
+	
+		TheaterImpl tImpl = new TheaterImpl("theater_1");
+		tImpl.setId(1);
+		tImpl.setPlayingMovies(new ArrayList<String>(Arrays.asList("movie-1","movie-B","movie-C")));
+		tImpl.setPincode(12345); 
 		
-		assertThat(expectedPin, is(theaterService.getTheaterList(1234)));
-		assertThat(expectedMPin, is(theaterService.getTheaterList("t1")));
-		assertThat(expectedMPin, is(theaterService.getTheaterList("t1",1234)));
-		assertThat(theaterService.getTheaterList(123)).isNull();
-		assertThat(theaterService.getTheaterList("HMC")).isNull();
-		assertThat(theaterService.getTheaterList("HMC", 234)).isNull();
+		Theater t = theaterService.addTheater(tImpl);
+		//System.out.println(theaterService.getMoviesInTheater("theater_1"));;
+		//assertThat(theaterService.getMoviesInTheater("theater_1"), is(new ArrayList<String>(Arrays.asList("movie-1"))));
+	    assertThat(theaterService.getTheaterList(12345), is(new ArrayList<>(Arrays.asList(t))));
+	    assertThat(theaterService.getTheaterList("movie-B"), is(new ArrayList<>(Arrays.asList(t))));
+	    assertThat(theaterService.getTheaterList("movie-1", 12345), is(new ArrayList<>(Arrays.asList(t))));
 	}
 	
 	@Test
 	public void getMoviesInTheater() throws Exception {
 		
-		List<String> expectedA = new ArrayList<String>();
-		List<String> expectedC = new ArrayList<String>();
-		
-		expectedA.add("T1");
-		expectedA.add("T2");
-		expectedA.add("SpiderMan HomeComing");
-		
-	    expectedC.add("NoMovie");
-		
-		
-	    Theater t1 = new TheaterImpl("theater-10");
-	    Theater t2 = new TheaterImpl("theater-11");
-		
-		assertThat(expectedA, is(theaterService.getMoviesInTheater(t1)));
-		assertThat(expectedC, is(theaterService.getMoviesInTheater(t2)));
-		
-		
+		TheaterImpl tImpl = new TheaterImpl("theater_2");
+		tImpl.setId(5);
+		tImpl.setPincode(12346);
+		tImpl.setPlayingMovies(new ArrayList<String>(Arrays.asList("movie-1","movie-2","movie-3")));
+		Theater t = theaterService.addTheater(tImpl);
+		assertThat(theaterService.getMoviesInTheater("theater_2"), 
+				is(new ArrayList<String>(Arrays.asList("movie-1","movie-2","movie-3"))));
 	}
 	
 	
 	@Test
 	public void getUpMoviesInTheater() throws Exception {
-		List<String> expectedA = new ArrayList<String>();
-		List<String> expectedC = new ArrayList<String>();
 		
-		expectedA.add("IronMan");
-		expectedA.add("KingKong");
-		expectedA.add("Dracula");
+		TheaterImpl tImpl = new TheaterImpl("theater_3");
+		tImpl.setId(2);
+		tImpl.setPincode(12347);
+		tImpl.setPlayingMovies(new ArrayList<String>(Arrays.asList("movie-1","movie-2","movie-3")));
+		tImpl.setUpComingMovies(new ArrayList<String>(Arrays.asList("movie-4","movie-5","movie-6")));
+		Theater t = theaterService.addTheater(tImpl);
+		//System.out.println("t details"+t+"\n\n\n Hello is it me you are looking for !!! \n\n");
+		assertThat(theaterService.getUpComingMoviesInTheater("theater_3"), 
+				is(new ArrayList<String>(Arrays.asList("movie-4","movie-5","movie-6"))));
 		
-	    expectedC.add("NoMovie");
-		
-	    Theater t1 = new TheaterImpl("theater-10");
-	    Theater t2 = new TheaterImpl("theater-11");
-		
-		assertThat(expectedA, is(theaterService.getUpComingMoviesInTheater(t1)));
-		assertThat(expectedC, is(theaterService.getUpComingMoviesInTheater(t2)));
 		
 	}
 }

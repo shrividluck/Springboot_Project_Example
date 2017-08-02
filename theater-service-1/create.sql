@@ -1,0 +1,1 @@
+create table theaters (idtheaters bigint not null auto_increment, movies_playing varchar(255), pincode integer, theater_address varchar(255), theater_name varchar(255), upcoming_movies varchar(255), primary key (idtheaters))

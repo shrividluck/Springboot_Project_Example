@@ -1,0 +1,1 @@
+create table movies (idmovies bigint not null auto_increment, cast_crew varchar(255), genre varchar(255), movie_name varchar(255), ratings varchar(255), reviews varchar(255), synopsis varchar(255), primary key (idmovies))
