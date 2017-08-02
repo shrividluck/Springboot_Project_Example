@@ -43,11 +43,11 @@ private Logger logger = LoggerFactory.getLogger(getClass());
 			throw new InvalidFieldException("Name is required");
 		}
 		logger.info("Calling theater Service for movieName "+movie.getMovieName());
-		if(!theaterServiceClient.theaterIsRunningMovie(movie.getMovieName())) {
+		/*if(!theaterServiceClient.theaterIsRunningMovie(movie.getMovieName())) {
 			logger.info("Theater is running it !!!");
 		} else {
 			logger.info("Theater is not running it !!!");
-		}
+		}*/
 		MovieImpl impl = mRepository.findByMovieName(movie.getMovieName());	
 		if(impl != null) {
 			return impl;
