@@ -7,7 +7,6 @@ public interface Theater {
 	int getPincode();
 	void setPincode(int pC);
 	List<String> getMoviesPlaying();
-	//String getListOfTheaters();
 	String getTheaterAddress();
 	List<String> getUpcomingMovies();
 	String getTheaterName();

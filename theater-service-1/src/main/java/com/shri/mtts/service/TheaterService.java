@@ -8,8 +8,7 @@ import com.shri.mtts.entity.impl.TheaterImpl;
 public interface TheaterService {
 	
 	/*
-	 * 
-	 * Browse all theaters available in the system.
+a. Browse all theaters available in the system.
 b. Browse all movies playing in a particular theatre
 c. Filter theaters by entering zip code.
 d. Filter theaters by movie name and zip code.
@@ -19,20 +18,10 @@ g. Get list of upcoming movies in that theater
 	 */
 	
 	void addMovieToTheater(String movie, Theater Th);
-
-	//void updateMovieInfo(String movieInfo);
 	
 	Theater addTheater(String theaterName);
 
 	Theater addTheater(Theater theater);
-	
-/*	Theater getTheaterName(long id);
-	
-	Theater getTheaterName(String tName); // ?? */
-	
-//	List<String> getMoviesInTheater(Theater theater);
-	
-//	List<String> getUpComingMoviesInTheater(Theater theater);
 	
 	Iterable<TheaterImpl> getTheaterList(String movieName);
 
@@ -50,6 +39,4 @@ g. Get list of upcoming movies in that theater
 
 	Iterable<TheaterImpl> getTheaterListByName(String tName);
 
-	//Theater getTheaterName(long id);
-		
 }

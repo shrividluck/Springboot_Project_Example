@@ -98,12 +98,7 @@ public class TheaterResource {
 		}
 		return new ResponseEntity<>(returnList, HttpStatus.OK);
 	}
-	/**
-	 * 
-	 * 
-	 * @param newTheater
-	 * @return
-	 */
+	
 	private Theater convert(HttpTheater httpTheater) {
 		Theater theater = new TheaterImpl();
 		theater.setTheaterName(httpTheater.Name);

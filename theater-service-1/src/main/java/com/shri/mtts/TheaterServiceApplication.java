@@ -5,16 +5,19 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import ch.qos.logback.access.tomcat.LogbackValve;
 
 
 /**
  * Start application
- * @author: shri
+ * @author: shrividluck
  *
  */
+
 @SpringBootApplication
+@Configuration
 @EnableEurekaClient
 public class TheaterServiceApplication {
 

@@ -17,4 +17,6 @@ public interface Movie {
 	//List<String> getTheatersPlayingMovie();  // ??? get list of theaters playing the movie.
 	//String getTheatersPlayingAsString();
 	boolean equals(Object obj);
+	void setMovieInTheater(boolean isMovieInTheater);
+	boolean isMovieInTheater();
 }

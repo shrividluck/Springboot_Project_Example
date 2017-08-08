@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author shrividluck
- *
- */
-package com.shri.mtts.entity.impl;
-import com.shri.mtts.entity.Movie;

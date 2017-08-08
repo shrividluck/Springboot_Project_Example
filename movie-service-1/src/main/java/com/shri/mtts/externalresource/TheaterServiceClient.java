@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Connect with User Service using Rest Template
- * @author rahul
+ * Connect with Theater Service using Rest Template
+ * @author shrividya
  *
  */
 @Component
@@ -29,8 +29,8 @@ public class TheaterServiceClient {
 
 	public boolean theaterIsRunningMovie(String mName) {
 		
-		ResponseEntity<TheaterResponse> response = theaterServiceRestTemplate.exchange(theaterServiceUrl+"/theaters/movie/{movieName}", 
-				HttpMethod.GET, null, TheaterResponse.class, mName);
+		ResponseEntity<TheaterResponse[]> response = theaterServiceRestTemplate.exchange(theaterServiceUrl+"/theaters/movie/{movieName}", 
+				HttpMethod.GET, null, TheaterResponse[].class, mName);
 		
 		logger.info("Theater response:"+response.getBody());
 		

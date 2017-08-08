@@ -34,7 +34,7 @@ public class MovieServiceApplication {
 	
 	@Bean
 	@LoadBalanced
-	public RestTemplate userServiceRestTemplate(TheaterServiceResponseErrorHandler errorHandler){
+	public RestTemplate theaterServiceRestTemplate(TheaterServiceResponseErrorHandler errorHandler){
 	HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
 	requestFactory.setReadTimeout(readTimeout);
 	requestFactory.setConnectTimeout(connectTimeout);

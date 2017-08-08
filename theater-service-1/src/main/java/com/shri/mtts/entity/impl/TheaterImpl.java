@@ -21,7 +21,6 @@ public class TheaterImpl implements Theater {
 	@Column(name = "idtheaters")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id; 
-	// changed id from long to Integer (long was not allowed for HashCode, int was not allowed too)
 
 	@Column(name = "theater_name")
 	private String theaterName;
@@ -182,18 +181,10 @@ public class TheaterImpl implements Theater {
 		if (getClass() != obj.getClass())
 			return false;
 		if(((Theater)obj).getTheaterName().equals(this.getTheaterName())) {
-			//TheaterImpl tImpl = (TheaterImpl) obj; // new , not sure
-        	//return id.equals(that.id); // this is just cpy pst
 			return true;
 		}
 		return false;
 	}
-
-	//new , not sure
-	/*	@Override
-	    public int hashCode() {
-	        return this.id == null ? 0 : this.id.hashCode();
-	    }*/
 		
 	
 	public String toString() {
@@ -212,19 +203,5 @@ public class TheaterImpl implements Theater {
 		this.moviesPlaying = movies;
 		
 	}
-	
-	/*@Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (id == null || obj == null || getClass() != obj.getClass())
-            return false;
-        Person that = (Person) obj;
-        return id.equals(that.id);
-    }
-    @Override
-    public int hashCode() {
-        return id == null ? 0 : id.hashCode();
-    }*/
 	
 }

@@ -1,5 +1,0 @@
-package com.shri.mtts.service;
-
-public interface MovieService {
-
-}

@@ -40,7 +40,7 @@ public class MovieResource {
 	public ResponseEntity<HttpMovie> createMovie(@RequestBody HttpMovie newMovie) {		
 		Movie MovieToCreate = convert(newMovie);
 		logger.info("Create Movie:" + MovieToCreate);
-		Movie addedMovie = movieService.addMovie(MovieToCreate);
+		Movie addedMovie = movieService.addMovie(MovieToCreate); // add to db throught interface.
 		return new ResponseEntity<>(new HttpMovie(addedMovie), HttpStatus.CREATED);
 	}
     // new

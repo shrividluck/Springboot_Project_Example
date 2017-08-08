@@ -1,9 +1,0 @@
-package com.shri.mtts.entity;
-
-public interface Showtimes {
-	long getId();	
-	String getAllShowtimes();  // In a particular theater
-	String getAllTheaterShowtimes();     // Show times in all theaters
-	String getDateBasedShowtimes();
-	
-}

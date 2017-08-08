@@ -14,14 +14,14 @@ import io.restassured.response.Response;
 /**
  * Tests using Rest Assured
  * 
- * @author shrividya
+ * @author shrividluck
  *
  */
 public class TestTheaterResource {
 	private static final String HTTP_HOST = "http://localhost:9080";
 
 	@Test
-	public void testGetUsersNoParams() {
+	public void testGetTheatersNoParams() {
 		given().log().all()
 		.when().get(HTTP_HOST + "/theaters")
 		.then().log().all().statusCode(409).body("status", equalTo(409))
@@ -30,7 +30,7 @@ public class TestTheaterResource {
 	}
 
 	@Test
-	public void testCreateAndGetUser() {
+	public void testCreateAndGetTheater() {
 		HttpTheater theater = new HttpTheater();
 		theater.Name = "AMC-M";
 		theater.pincode = 95054;
@@ -53,6 +53,5 @@ public class TestTheaterResource {
 		.then().log().all().statusCode(200)
 				.contentType("application/json")
 				.body("Name",hasItems("AMC-M"));
-
 	}
 }

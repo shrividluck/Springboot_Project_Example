@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 /**
  * Test class is independent 
  *  
- * @author shrividya
+ * @author shrividluck
  *
  */
 @JsonInclude(value=Include.NON_NULL)
@@ -17,3 +17,6 @@ public class HttpTheater {
 	public String MoviesPlaying;
 
 }
+
+
+

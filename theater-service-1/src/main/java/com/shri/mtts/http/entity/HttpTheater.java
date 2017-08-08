@@ -31,6 +31,6 @@ public class HttpTheater {
 		this.Name = t.getTheaterName();
 		this.pincode = t.getPincode();
 		this.MoviesPlaying = t.getMoviesPlayingAsString();
-		//not setting PIN
+		
 	}
 }

@@ -1,6 +1,0 @@
-package com.shri.mtts.service;
-import com.shri.mtts.entity.Movie;
-
-public interface MovieService {
-
-}

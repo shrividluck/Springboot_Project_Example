@@ -19,7 +19,7 @@ public interface TheaterRepository extends CrudRepository<TheaterImpl, Long> {
 	
 	TheaterImpl findByTheaterName(String theaterName);
 
-	Iterable<TheaterImpl> findByMoviesPlayingContaining(String movieName); // ???
+	Iterable<TheaterImpl> findByMoviesPlayingContaining(String movieName); 
 	
 	Iterable<TheaterImpl> findByPincode(int pincode);
 }

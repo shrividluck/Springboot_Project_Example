@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 import com.shri.mtts.entity.Movie;
 
 @Entity
@@ -41,9 +43,22 @@ public class MovieImpl implements Movie {
 	@Column(name = "synopsis")
 	private String synopsis;
 	
+	@Column(name = "isMovieInTheater")
+	@Type(type="yes_no")
+	private boolean isMovieInTheater;
+	
 	//@Column(name = "theaters_playing_movie")
 	//private List<String> theatersPlayingMovie;
 	
+	@Override
+	public boolean isMovieInTheater() {
+		return isMovieInTheater;
+	}
+    @Override
+	public void setMovieInTheater(boolean isMovieInTheater) {
+		this.isMovieInTheater = isMovieInTheater;
+	}
+
 	public MovieImpl() {
 	}
 	

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 /**
  * Test class is independent
- * @author rahul
+ * @author shrividluck
  *
  */
 @JsonInclude(value=Include.NON_NULL)

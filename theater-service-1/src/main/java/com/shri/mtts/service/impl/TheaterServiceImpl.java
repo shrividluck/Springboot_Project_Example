@@ -42,7 +42,6 @@ public class TheaterServiceImpl implements TheaterService {
 
 	@Override
 	public Theater addTheater(String theaterName) {
-		// TODO Auto-generated method stub
 		return new TheaterImpl(theaterName);
 	}
 
@@ -98,7 +97,7 @@ public class TheaterServiceImpl implements TheaterService {
 
 	@Override
 	public Iterable<TheaterImpl> getTheaterList(String movieName) {
-		/*// TODO Auto-generated method stub
+		/*
 		if("t1".equals(movieName)) {
 		  List<Theater> list = new ArrayList<>();
 		  list.add(new TheaterImpl("theater-10"));
@@ -116,7 +115,7 @@ public class TheaterServiceImpl implements TheaterService {
 
 	@Override
 	public Iterable<TheaterImpl> getTheaterList(int pincode) {
-		// TODO Auto-generated method stub
+		
 		/*List<Theater> list = new ArrayList<>();
 		if( pincode == 1234) {
 			list.add(new TheaterImpl("theater-10"));
@@ -134,7 +133,7 @@ public class TheaterServiceImpl implements TheaterService {
 
 	@Override
 	public Iterable<TheaterImpl> getTheaterList(String mName, int pincode) {
-		// TODO Auto-generated method stub
+		
 		/*if("t1".equals(mName) && pincode == 1234) {
 			List<Theater> list = new ArrayList<>();
 			list.add(new TheaterImpl("theater-10"));
@@ -159,7 +158,7 @@ public class TheaterServiceImpl implements TheaterService {
 	
 	@Override
 	public Theater getTheaterName(String tName) {
-		// TODO Auto-generated method stub
+		
 		if(StringUtils.isEmpty(tName)) {
 			throw new MTTSException(ErrorCode.MISSING_DATA,"theater name required");
 		}
@@ -168,27 +167,11 @@ public class TheaterServiceImpl implements TheaterService {
 	
 	@Override
 	public Iterable<TheaterImpl> getTheaterListByName(String tName) {
-		// TODO Auto-generated method stub
+		
 		if(StringUtils.isEmpty(tName)) {
 			throw new MTTSException(ErrorCode.MISSING_DATA,"theater name required");
 		}
 		return tRepository.findByTheaterNameContaining(tName);
 	}
-    
-	
-
-/*	@Override
-	public Theater getTheaterName(long id) {
-		// TODO Auto-generated method stub
-		return new TheaterImpl();
-	}
-
-	@Override
-	public Theater getTheaterName(String tName) {
-		// TODO Auto-generated method stub
-		return new TheaterImpl(tName);
-	}
-
-	*/
 
 }

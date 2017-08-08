@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="MovieServiceTest" project="movie-service-1" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.shri.mtts.service.MovieServiceTest" time="0.046">
-    <testcase name="getMoviesGenre" classname="com.shri.mtts.service.MovieServiceTest" time="0.043"/>
-    <testcase name="getMovies" classname="com.shri.mtts.service.MovieServiceTest" time="0.0"/>
-    <testcase name="getMovie" classname="com.shri.mtts.service.MovieServiceTest" time="0.003"/>
-  </testsuite>
-</testrun>

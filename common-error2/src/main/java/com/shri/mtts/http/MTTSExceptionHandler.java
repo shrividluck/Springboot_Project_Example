@@ -13,7 +13,7 @@ import com.shri.mtts.service.exception.MTTSException;
 
 /**
  * Exception handling advice - for all controllers
- * @author shri
+ * @author shrividya
  *
  */
 @ControllerAdvice
