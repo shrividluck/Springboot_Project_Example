@@ -51,7 +51,7 @@ public class MovieResource {
 		return new ResponseEntity<>(new HttpMovie(movie), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/GENRE/{genre}", method = RequestMethod.GET)
+	@RequestMapping(value = "/genre/{genre}", method = RequestMethod.GET)
 	public ResponseEntity<List<HttpMovie>> getMovieByGenre(@PathVariable("genre") String genre) {
 		logger.info("getting Movies by genre:" + genre);
 		Iterable<MovieImpl> movieByG = movieService.getMoviesByGenre(genre);

@@ -77,7 +77,6 @@ INDEX VERSION 1.130+/Users/shrividluck/gitTemp/shrividya-manmohan-movies/.metada
 1192534635.index
 1136422560.index
 3781503605.index
-1345158182.index
 4004754821.index
 2214516103.index
 703067973.index
