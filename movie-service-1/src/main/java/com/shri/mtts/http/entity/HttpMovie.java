@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author shrividya
+ * @author shrividluck
  *
  */
 package com.shri.mtts.http.entity;
@@ -28,7 +28,6 @@ public class HttpMovie {
 	}
 
 	public HttpMovie(Movie mv ) {
-		//this.id= mv.getMovieId();
 		this.Name = mv.getMovieName();
 		this.Genre = mv.getMovieGenre(); 
 		this.Ratings = mv.getMovieRatings();

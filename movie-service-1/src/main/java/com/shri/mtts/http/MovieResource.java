@@ -43,7 +43,7 @@ public class MovieResource {
 		Movie addedMovie = movieService.addMovie(MovieToCreate); // add to db throught interface.
 		return new ResponseEntity<>(new HttpMovie(addedMovie), HttpStatus.CREATED);
 	}
-    // new
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<HttpMovie> getMovieById(@PathVariable("id") Long id) {
 		logger.info("getting Movie by id:" + id);
@@ -65,7 +65,7 @@ public class MovieResource {
 		return new ResponseEntity<>(returnList, HttpStatus.OK);
 	}
 
-    // new	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<HttpMovie>> getMovieList() {
 		logger.info("Movie list : All movies");
@@ -76,21 +76,14 @@ public class MovieResource {
 		}
 		return new ResponseEntity<>(returnList, HttpStatus.OK);
 	}
-     
+
 	@RequestMapping(value = "/movie/{movieName}", method = RequestMethod.GET)
 	public ResponseEntity<HttpMovie> getMovieInfo(@PathVariable("movieName") String movieName) {
 		logger.info("getting Movies Info:" + movieName);
 		Movie movie = movieService.getMovie(movieName);	
-	    return new ResponseEntity<>(new HttpMovie(movie), HttpStatus.OK);
-		
+		return new ResponseEntity<>(new HttpMovie(movie), HttpStatus.OK);
+
 	}
-	
-	/**
-	 *
-	 * 
-	 * @param newMovie
-	 * @return
-	 */
 	private Movie convert(HttpMovie httpMovie) {
 		MovieImpl movie = new MovieImpl();
 		movie.setMovieId(httpMovie.id);

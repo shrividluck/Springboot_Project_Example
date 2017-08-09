@@ -10,9 +10,11 @@ import com.shri.mtts.entity.Showtimes;
 public class ShowtimesImpl implements Showtimes {
 
 	private long id;	
-	private String theaterShowtimes;
+	String mvName;
+	String tName;
+	String time;
+	private String allMovieShowtimes;
 	private String allTheaterShowtimes;
-	private String dateBasedShowtimes;
 	
 	
 	public ShowtimesImpl() {
@@ -27,29 +29,26 @@ public class ShowtimesImpl implements Showtimes {
 		return id;
 	}
 
-	public String getTheaterShowtimes() {
+	public String getMovieShowtimeForTheater(String movie, String theater) {
 		// TODO Auto-generated method stub
-		return theaterShowtimes;
+		return null;
 	}
 
-	public void setTheaterShowtimes(String theaterShowtimes) {
-		this.theaterShowtimes = theaterShowtimes;
+	public void setMovieShowtimeForTheater(String movie, String theater, String time) {
+		this.mvName = movie;
+		this.tName = theater;
+		this.time = time;
 	}
 
-	public String getAllTheaterShowtimes() {
-		return allTheaterShowtimes;
+	public String getAllTheaterShowtimes(String movie) {
+		// TODO Auto-generated method stub
+		return this.allTheaterShowtimes;
 	}
 
-	public void setAllTheaterShowtimes(String allTheaterShowtimes) {
-		this.allTheaterShowtimes = allTheaterShowtimes;
+	public String getAllMovieShowtimes(String theater) {
+		// TODO Auto-generated method stub
+		return this.allMovieShowtimes;
 	}
 
-	public String getDateBasedShowtimes() {
-		return dateBasedShowtimes;
-	}
-
-	public void setDateBasedShowtimes(String dateBasedShowtimes) {
-		this.dateBasedShowtimes = dateBasedShowtimes;
-	}
 	
 }

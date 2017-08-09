@@ -417,8 +417,8 @@ fun main(args: Array&amp;lt;String&amp;gt;) {&#xD;
   resources(&amp;quot;/**&amp;quot;, ClassPathResource(&amp;quot;static/&amp;quot;))&#xD;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Routes usually point to handlers in charge of creating an HTTP response based on the HTTP request via callable references. Here is the &lt;code&gt;UserHandler&lt;/code&gt; which takes advantage of the Kotlin extensions Spring Framework 5 is providing directly in Spring JARs to avoid the well-known type erasure problem using &lt;a href="https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters"&gt;Kotlin reified type parameters&lt;/a&gt;. The same code in Java would require additional &lt;code&gt;Class&lt;/code&gt; or &lt;code&gt;ParameterizedTypeReference&lt;/code&gt; parameters.&lt;/p&gt;
 &lt;p&gt;Like for the bean DSL, the functional routing DSL allows programmatic registration of routes based on custom logic and dynamic data (can be useful to develop a CMS or eCommerce solution where most routes depends on data created via the backoffice). &lt;/p&gt;
+&lt;p&gt;Routes usually point to handlers in charge of creating an HTTP response based on the HTTP request via callable references. Here is the &lt;code&gt;UserHandler&lt;/code&gt; which takes advantage of the Kotlin extensions Spring Framework 5 is providing directly in Spring JARs to avoid the well-known type erasure problem using &lt;a href="https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters"&gt;Kotlin reified type parameters&lt;/a&gt;. The same code in Java would require additional &lt;code&gt;Class&lt;/code&gt; or &lt;code&gt;ParameterizedTypeReference&lt;/code&gt; parameters.&lt;/p&gt;
 &lt;pre&gt;&lt;code class="prettyprint kotlin"&gt;class UserHandler {&#xD;
 	&#xD;
   private val users = Flux.just(&#xD;
