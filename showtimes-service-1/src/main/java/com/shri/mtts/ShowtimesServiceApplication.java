@@ -14,7 +14,7 @@ import ch.qos.logback.access.tomcat.LogbackValve;
 
 /**
  * Start application
- * @author: shri
+ * @author: Shrividya
  *
  */
 @SpringBootApplication

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy 3 elements to &apos;movie-service-1/src/test/resources&apos;&#x0A;- Original project: &apos;user-service-1&apos;&#x0A;- Destination element: &apos;movie-service-1/src/test/resources&apos;&#x0A;- Original elements:&#x0A;     users-id.json&#x0A;     users-list.json&#x0A;     users-create.json" description="Copy files" destination="=movie-service-1/src\/test\/resources" element1="src/test/resources/users-id.json" element2="src/test/resources/users-list.json" element3="src/test/resources/users-create.json" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1499803856149" units="0" version="1.0"/>
-</session>

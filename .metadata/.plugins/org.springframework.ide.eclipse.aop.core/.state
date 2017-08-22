@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<aop-reference-model>
-<aop-project name="eureka-service2"/>
-<aop-project name="config-service2"/>
-<aop-project name="mtts-theater-test"/>
-<aop-project name="common-error2"/>
-</aop-reference-model>
